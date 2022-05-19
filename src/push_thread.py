@@ -47,7 +47,10 @@ class PushThread(Thread):
         popt.SetScale(1)
         popt.SetMirror(False)
         popt.SetUseGerberAttributes(True)
-        popt.SetExcludeEdgeLayer(True)
+        try:
+            popt.SetExcludeEdgeLayer(True)
+        except AttributeError:
+            pass
         popt.SetUseGerberProtelExtensions(False)
         popt.SetUseAuxOrigin(True)
         popt.SetSubtractMaskFromSilk(False)
